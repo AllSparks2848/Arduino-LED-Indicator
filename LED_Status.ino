@@ -55,28 +55,62 @@ void loop()
       green();
 //       cylon(CRGB::Blue, 60, 1);
     }
-
+    if(valBit1==HIGH)
+    {
+      off();
+    } else
+    {
+      white();
+    }
+    
 }
 
 //Set strip red for gear intake
 void red()
 {
    //Step thru some brightness levels from max to 10. led_brightness/=2 is a cryptic shorthand way of saying led_brightness = led_brightness/2
-       for (int i = 0; i<NUM_LEDS; i++) {
+       for (int i = 0; i<=5; i++) {
+    leds[i] = CRGB::Green;  //Green = Red, still troubeshooting lol
+      }
+      for (int i = 9; i<=14; i++) {
     leds[i] = CRGB::Green;  //Green = Red, still troubeshooting lol
       }
     FastLED.show();
-    delay(100);
+    delay(50);
+}
+
+void white()
+{
+  //Step thru some brightness levels from max to 10. led_brightness/=2 is a cryptic shorthand way of saying led_brightness = led_brightness/2
+       for (int i = 6; i<=8; i++) {
+    leds[i] = CRGB::White;  //Green = Red, still troubeshooting lol
+      }
+    FastLED.show();
+    delay(50);
+}
+
+void off()
+{
+  //Step thru some brightness levels from max to 10. led_brightness/=2 is a cryptic shorthand way of saying led_brightness = led_brightness/2
+       for (int i = 6; i<=8; i++) {
+    leds[i] = CRGB::Black;  //Green = Red, still troubeshooting lol
+      }
+    FastLED.show();
+    delay(50);
 }
 
 void green()
 {
    //Step thru some brightness levels from max to 10. led_brightness/=2 is a cryptic shorthand way of saying led_brightness = led_brightness/2
        for (int i = 0; i<NUM_LEDS; i++) {
+    for (int i = 0; i<=5; i++) {
+    leds[i] = CRGB::Red;  //Green = Red, still troubeshooting lol
+      }
+      for (int i = 9; i<=14; i++) {
     leds[i] = CRGB::Red;  //Green = Red, still troubeshooting lol
       }
     FastLED.show();
-    delay(100);
+    delay(50);
 }
 
 //Cylon - LED sweeps back and forth, with the color, delay and number of cycles of your choice
